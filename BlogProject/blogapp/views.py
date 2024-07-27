@@ -1,9 +1,29 @@
 from blogapp.models import Blog
 from blogapp.Serealizer import BlogSerializer
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework import viewsets
 
+
+
+class BlogViewset(viewsets.ModelViewSet):
+    queryset = Blog.objects.all()
+    serializer_class=BlogSerializer
+
+
+'''
+class BlogList(generics.ListCreateAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
+
+
+class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+'''
+
+
+
+'''
 class BlogList(APIView):
     def get(self,request):
         blogs = Blog.objects.all()
@@ -38,6 +58,10 @@ class BlogDetail(APIView):
         blog = Blog.objects.get(pk=id)
         blog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+'''
+
+
+
 
 '''
 @api_view(['GET','POST'])

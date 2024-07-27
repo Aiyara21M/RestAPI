@@ -2,7 +2,8 @@
 from django.urls import path
 from blogapp import views
 
-urlpatterns = [
-    path('list/', views.BlogList.as_view()),
-    path('<int:id>', views.BlogDetail.as_view()),
-    ]
+# urlpatterns = [
+#     path('list/', views.BlogList.as_view()),
+#     path('<int:pk>', views.BlogDetail.as_view()),
+#     ]
+
