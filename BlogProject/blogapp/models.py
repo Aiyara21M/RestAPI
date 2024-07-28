@@ -11,6 +11,6 @@ class Blog(models.Model):
     title=models.CharField(max_length=50)
     dct=models.CharField(max_length=255)
     active=models.BooleanField(default=True)
-    category =  models.ForeignKey(Category,on_delete=models.CASCADE,default=None)
+    category =  models.ForeignKey(Category,on_delete=models.CASCADE,related_name="blogs",default=None)
 
 

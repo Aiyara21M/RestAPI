@@ -1,13 +1,22 @@
-from blogapp.models import Blog
-from blogapp.Serealizer import BlogSerializer
+from blogapp.models import Blog,Category
+from blogapp.Serealizer import BlogSerializer,CategorySerializer
 from rest_framework import viewsets
-
+# from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated,DjangoModelPermissions
 
 
 class BlogViewset(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class=BlogSerializer
+    filter_backends=[filters.OrderingFilter]
+    search_fields=['_id','title']
 
+    
+class CategoryViewset(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class=CategorySerializer
 
 '''
 class BlogList(generics.ListCreateAPIView):

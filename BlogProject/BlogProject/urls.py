@@ -21,6 +21,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('blog',views.BlogViewset)
+router.register('category',views.CategoryViewset)
 
 
 
@@ -28,6 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # สร้างpath จาก app และไฟล์ urls
     # path('blog/',include("blogapp.urls"))
-    
     path('',include(router.urls))
 ]
